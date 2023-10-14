@@ -13,6 +13,12 @@ body{
   justify-content: space-between;
   overflow: hidden;
 }
+.chart-box{
+  display: flex; 
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
 .chart {
     width: 80%;
     height: 700px;
@@ -50,4 +56,102 @@ body{
   background-color: #ccc;
   width: 20px;
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+/************ Super Controls ***********************/
+.super-controls {
+  border: 5px solid rgb(81, 92, 103);
+  margin-left: 78px;
+  background-color: #384048;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  gap: 7px;
+  z-index: 1;
+}
+
+.buy-sell__box{
+ display: flex;
+ gap: 7px;
+}
+.buy-btn, 
+.sell-btn{
+  flex: 0 1 50%;
+  box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  color: #ccc;
+
+}
+
+.buy-btn:hover,
+.sell-btn:hover {
+  cursor: pointer;
+  background-color: #42494f ;
+}
+
+.order-info__box {
+ display: flex;
+ gap: 7px;
+}
+.bought-sold,
+.entry-price{
+  flex: 0 1 50%;
+  box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  color: #ccc;
+}
+
+
+.close-position__btn {
+  padding: 10px;
+  width: 110px;
+  background-color: #384048;
+  outline: none;
+  border: none;
+  box-shadow: rgb(105, 105, 105) 0px 0px 3px 0px;
+  color: #eee;
+  margin-top: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.close-position__btn:hover{
+  background-color: #42494f ;
+}
+
+.order-quantity__title {
+align-self: end;
+margin-right: 20px;
+margin-top: -62px;
+color: #ccc;
+font-size: 17px;
+}
+.order-quantity__numbers {
+align-self: end;
+width: 69px;
+margin-right: 10px;
+margin-top: -15px;
+background-color: #505962; 
+border: none;
+outline: none;
+color: #eee;
+padding: 5px 1px 5px 10px;
+}
+.current-profit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d333a;
+  color: #ccc;
+  padding: 7px;
+  box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
+}
+
+
+.open-pnl{
+ padding: 3px 5px 3px 5px;
 }
