@@ -2,6 +2,7 @@ const canvas = document.getElementById("candlestickChart");
 const priceNow = document.querySelector(".price-now");
 const pricePoints = document.querySelector(".price-points");
 pricePoints.innerHTML = generatePriceLadder().join(""); // Attach the price ladder
+const tickPoints = document.querySelectorAll(".tick-price");
 
 // Generate p elements with numbers form 150 to 1
 function generatePriceLadder() {
@@ -61,7 +62,33 @@ function updateChart() {
     // Draw the candlestick at the specified coordinates.
     drawCandle(xAxis, open, high, low, close);
   }
+  // Display the current traded price position on Y axis
+  displayCurrentTradedPrice(tickPoints);
 }
 
 setInterval(createCandle, 500);
 setInterval(updateChart, 500);
+
+function displayCurrentTradedPrice(priceLadder) {
+  // Loop over the price ladder check which number is equal to the current price and display it, else hide it.
+  priceLadder.forEach((el) => {
+    if (parseInt(el.textContent) === Math.floor(currentPrice)) {
+      el.style.visibility = "visible";
+      el.style.borderTopRightRadius = "3px";
+      el.style.borderBottomRightRadius = "3px";
+      el.style.padding = "0px 10px 0px 10px";
+      el.style.border = "1px solid #fff";
+      el.style.color = "#000";
+      el.style.fontWeight = "bold";
+      el.style.transform = "translateX(-25px)";
+    } else {
+      el.style.visibility = "hidden";
+      el.style.backgroundColor = "";
+      el.style.transform = "translateX(0px)";
+      el.style.padding = "0px 0px 0px 0px";
+      el.style.border = "none";
+      el.style.borderTopRightRadius = "0px";
+      el.style.borderBottomRightRadius = "0px";
+    }
+  });
+}
