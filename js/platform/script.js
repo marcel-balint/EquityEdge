@@ -66,8 +66,8 @@ function updateChart() {
   displayCurrentTradedPrice(tickPoints);
 }
 
-setInterval(createCandle, 500);
-setInterval(updateChart, 500);
+setInterval(createCandle, 900);
+setInterval(updateChart, 900);
 
 function displayCurrentTradedPrice(priceLadder) {
   // Loop over the price ladder check which number is equal to the current price and display it, else hide it.
