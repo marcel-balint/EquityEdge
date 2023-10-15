@@ -58,6 +58,60 @@ body{
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 }
 
+/************ Horizontal Bar For Entry Price styles ***********************/
+.entry{
+  display: flex;
+  align-items:center;
+  transform: translateX(-652px);
+  margin-top: 10px;
+  margin-bottom: -30px;
+  border: none;
+
+}
+
+.entry-window {
+  border-radius: 2px;
+  width: 50px;
+  height: 16px;
+  border-left: 2px solid #954535;
+  border-top:2px solid #954535;
+  border-bottom: 2px solid #954535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(56, 64, 72);
+  color: #EEe;
+}
+
+
+.entry-price-position{
+   width: 50px;
+   background-color: #954535;
+   color: #eee;
+   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+   display: flex;
+   justify-content: center;
+   margin-left: -3px;
+
+}
+.entry-line {
+  display: flex;
+  border: 2px solid #954535;
+  width: 550px;
+
+  }
+
+.entry-num-of-qty{
+  border-top: 2px solid #954535;
+  border-right: 2px solid #954535;
+  border-bottom: 2px solid #954535;
+  height: 16px;
+  padding-left: 20px;
+  padding-right: 5px;
+  margin-left: -9px
+}
+
+
 /************ Super Controls ***********************/
 .super-controls {
   border: 5px solid rgb(81, 92, 103);

@@ -82,7 +82,12 @@ function displayCurrentTradedPrice(priceLadder) {
       el.style.fontWeight = "bold";
       el.style.transform = "translateX(-25px)";
     } else {
-      el.style.visibility = "hidden";
+      // Check if there is entry price to display it (horizontal label)
+      if (el.textContent === entryPriceLevel.textContent) {
+        el.style.visibility = "visible";
+      } else {
+        el.style.visibility = "hidden";
+      }
       el.style.backgroundColor = "";
       el.style.transform = "translateX(0px)";
       el.style.padding = "0px 0px 0px 0px";
