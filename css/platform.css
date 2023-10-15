@@ -219,3 +219,35 @@ padding: 5px 1px 5px 10px;
   box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
   flex-basis: 200px;
 }
+
+/******* Position tab *****************/
+
+.position-info__rows{
+  display: none;
+  flex-direction: column;
+  box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
+  color: #ccc;
+  padding: 10px;
+}
+.position-info_title-row,
+.position-info_values {
+  display: flex;
+}
+.position-info_column,
+.position-info_value {
+  padding: 5px 10px 5px 10px;
+  box-shadow: 0px 0px 3px 0px rgba(105,105,105,1);
+  flex-basis: 200px;
+}
+.is-active{
+  display: none;
+    padding: 0px 7px;
+    background: red;
+    margin: 5px;
+    border: 1px solid #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 50%;
+}
