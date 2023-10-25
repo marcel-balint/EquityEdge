@@ -38,6 +38,7 @@ sellButton.addEventListener("click", () => {
 
 closePositionBtn.addEventListener("click", () => {
   if (activeOrder) {
+    resetAccountsTabsUI();
     updateProfitsOrLossOnClose();
     buyButton.style.pointerEvents = "auto";
     sellButton.style.pointerEvents = "auto";
@@ -78,6 +79,34 @@ function insertEntryPriceLine(pricePoints) {
   });
 }
 
+function resetAccountsTabsUI() {
+  // Active Positions Tab
+  activePositionDirection.textContent = "BUY/SELL";
+  activePositionDirection.style.color = "#ccc";
+  activePositionQuantity.textContent = 0;
+  activePositionEntryPrice.textContent = 0;
+  activePositionPnl.innerHTML = `<span style="color: #ccc;">&euro; ${formatCurrency(
+    0
+  )}</span>`;
+  activeOrderLight.style.display = "none";
+  openPositionsTextTab.style.marginLeft = "0px";
+
+  // Account Tab
+  boughtOrSoldQtyEl.style.backgroundColor = "#384048";
+  boughtOrSoldQtyEl.textContent = "Flat";
+  entryPriceEl.style.backgroundColor = "#384048";
+  entryPriceEl.textContent = "Entry";
+  openPnlEl.textContent = "Pnl";
+
+  // Remove horizontal entry price label
+  tickPriceList.forEach((el) => {
+    if (el.querySelector(".entry")) {
+      el.innerHTML = "";
+      el.textContent = entryPriceLevelNumber;
+    }
+  });
+}
+
 // Update variables which holds the net, gross and total realized profit and display in the UI
 function updateProfitsOrLossOnClose() {
   // Get values form UI
@@ -88,10 +117,8 @@ function updateProfitsOrLossOnClose() {
   const [thousands, decimalNumbers] = adjustThousandsNet(netPnlOnClose);
   const thousandsGross = adjustThousandsGross(grossPnlOnClose);
 
-  // console.log("NET ON CLOSE", netPnlOnClose);
   // If value is negative, substract form net/gross global variables else add
   if (netPnlOnClose < 0) {
-    // console.log("CALCULATION", dailyProfitNet, "-", Math.abs(netPnlOnClose));
     // If incoming value is in thousands, add it to variable
     dailyProfitNet -=
       decimalNumbers.length === 3
