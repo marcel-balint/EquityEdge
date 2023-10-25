@@ -3,6 +3,19 @@ const priceNow = document.querySelector(".price-now");
 const pricePoints = document.querySelector(".price-points");
 pricePoints.innerHTML = generatePriceLadder().join(""); // Attach the price ladder
 const tickPoints = document.querySelectorAll(".tick-price");
+const orderQtyValue = document.querySelector(".order-quantity__numbers");
+const grossPnlEl = document.querySelector(".account_gross--pnl");
+const openPnlEl = document.querySelector(".open-pnl");
+const entryPriceEl = document.querySelector(".entry-price");
+const boughtOrSoldQtyEl = document.querySelector(".bought-sold");
+const activeOrderLight = document.querySelector(".is-active-order");
+const openPositionsTextTab = document.querySelector(".open-positions-text");
+const accountTotalPnl = document.querySelector(".account_total--pnl");
+const activePositionDirection = document.querySelector(".position-direction");
+const activePositionQuantity = document.querySelector(".position-qty");
+const activePositionEntryPrice = document.querySelector(".position-price");
+const activePositionPnl = document.querySelector(".position-pnl");
+const tickPriceList = document.querySelectorAll(".tick-price");
 
 // Generate p elements with numbers form 150 to 1
 function generatePriceLadder() {
@@ -64,6 +77,17 @@ function updateChart() {
   }
   // Display the current traded price position on Y axis
   displayCurrentTradedPrice(tickPoints);
+
+  if (activeOrder) {
+    // Calculate and display the profit based on BUY or SELL order
+    const profitAndLossData = calculateProfitAndLoss(
+      entryPriceLevelNumber,
+      currentPrice,
+      orderQtyValue.value,
+      activeOrder
+    );
+    updateUI(profitAndLossData, activeOrder);
+  }
 }
 
 setInterval(createCandle, 900);
@@ -94,6 +118,89 @@ function displayCurrentTradedPrice(priceLadder) {
       el.style.border = "none";
       el.style.borderTopRightRadius = "0px";
       el.style.borderBottomRightRadius = "0px";
+    }
+  });
+}
+
+// Calculate profit in real time, based on 'orderQunatity'
+function calculateProfitAndLoss(entryPrice, currentPrice, orderQty, orderType) {
+  let profitOrLossTicks;
+  let profitOrLoss;
+  let profitOrLossColor;
+  let decimalPercentage;
+  let totalPnl;
+
+  if (orderType === "BUY_MARKET") {
+    // Substract the CURRENT PRICE form ENTRY PRICE
+    profitOrLossTicks = currentPrice - parseInt(entryPrice);
+    // Profit based on order qunatity
+    profitOrLoss = profitOrLossTicks * parseInt(orderQty);
+    profitOrLossColor = profitOrLoss > 0 ? "green" : "red";
+    // Substact 0.5% commissions
+    decimalPercentage = 0.5 / 100;
+    totalPnl = profitOrLoss - profitOrLoss * decimalPercentage;
+  } else if (orderType === "SELL_MARKET") {
+    // Substract the ENTRY PRICE form CURRENT PRICE
+    profitOrLossTicks = parseInt(entryPrice) - currentPrice;
+    // Profit based on order qunatity
+    profitOrLoss = profitOrLossTicks * parseInt(orderQty);
+    profitOrLossColor = profitOrLoss > 0 ? "green" : "red";
+    // Substact 0.5% commission
+    decimalPercentage = 0.5 / 100;
+    totalPnl = profitOrLoss - profitOrLoss * decimalPercentage;
+  }
+
+  return {
+    profitOrLossTicks,
+    profitOrLoss,
+    profitOrLossColor,
+    totalPnl,
+  };
+}
+
+// Update UI in real time with profit or loss, currency colors based on profit/loss,
+// BUY or SELL order based on 'orderType'
+function updateUI(profitAndLossData, orderType) {
+  grossPnlEl.innerHTML = `<span style="color: ${
+    profitAndLossData.profitOrLossColor
+  }">&euro; ${formatCurrency(profitAndLossData.profitOrLoss)}</span>`;
+  openPnlEl.innerHTML = `<span style="color: ${
+    profitAndLossData.profitOrLossColor
+  }">&euro; ${formatCurrency(profitAndLossData.profitOrLoss)}</span>`;
+  entryPriceEl.textContent = entryPriceLevelNumber;
+  entryPriceEl.style.backgroundColor = "#2d333a";
+  boughtOrSoldQtyEl.textContent = orderQtyValue.value;
+  boughtOrSoldQtyEl.style.backgroundColor =
+    orderType === "BUY_MARKET" ? "green" : "red";
+  activeOrderLight.style.display = "block";
+  openPositionsTextTab.style.marginLeft = "15px";
+  accountTotalPnl.innerHTML = `<span style="color: ${
+    profitAndLossData.profitOrLossColor
+  }" >&euro; ${formatCurrency(profitAndLossData.totalPnl)}</span>`;
+
+  // Active Positions tab
+  activePositionDirection.textContent =
+    orderType === "BUY_MARKET" ? "BUY" : "SELL";
+  activePositionDirection.style.color =
+    orderType === "BUY_MARKET" ? "green" : "red";
+  activePositionQuantity.textContent = orderQtyValue.value;
+  activePositionEntryPrice.textContent = entryPriceLevelNumber;
+  activePositionPnl.innerHTML = `<span style="color: ${
+    profitAndLossData.profitOrLossColor
+  }">&euro; ${formatCurrency(profitAndLossData.profitOrLoss)}</span>`;
+
+  // Update inserted horizontal label
+  tickPriceList.forEach((el) => {
+    if (el.querySelector(".entry")) {
+      let parent = el;
+      parent.querySelector(".entry-window").textContent =
+        profitAndLossData.profitOrLossTicks;
+      parent.querySelector(".entry-window").style.backgroundColor =
+        profitAndLossData.profitOrLossColor;
+      parent.querySelector(".entry-num-of-qty").textContent =
+        orderQtyValue.value;
+      parent.querySelector(".entry-num-of-qty").style.backgroundColor =
+        orderType === "BUY_MARKET" ? "green" : "red";
     }
   });
 }

@@ -37,3 +37,8 @@ function drawCandle(xAxis, open, high, low, close) {
     Math.abs(open - close)
   );
 }
+
+// Convert numbers in currency
+function formatCurrency(amount) {
+  return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&.");
+}
