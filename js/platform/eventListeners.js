@@ -31,6 +31,12 @@ buyButton.addEventListener("click", () => {
   handleOrderClick("BUY_MARKET");
 });
 
+// SELL Order
+sellButton.addEventListener("click", () => {
+  handleOrderClick("SELL_MARKET");
+  console.log(activeOrder);
+});
+
 // Set the order type (BUY/SELL), insert entry price label on the chart
 function handleOrderClick(orderType) {
   activeOrder = orderType;
