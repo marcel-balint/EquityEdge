@@ -42,3 +42,26 @@ function drawCandle(xAxis, open, high, low, close) {
 function formatCurrency(amount) {
   return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&.");
 }
+
+// Check if the incoming values are thousands
+// Remove the dot (.) at 2nd index (1.234 -> 1234.00) so can be added or substracted to a float number
+function adjustThousandsNet(floatNum) {
+  let numToArray = floatNum.toString().split("");
+  let theInd = numToArray.indexOf(".");
+  let decimalNumbers = numToArray.slice(theInd + 1);
+  //   if there are more than 3 numbers after the dot, remove it
+  decimalNumbers.length === 3 ? numToArray.splice(theInd, 1) : "";
+  let thousands = numToArray.join("");
+
+  return [thousands, decimalNumbers];
+}
+
+function adjustThousandsGross(floatNum) {
+  let numToArray = floatNum.toString().split("");
+  let theInd = numToArray.indexOf(".");
+  let decimalNumbersGross = numToArray.slice(theInd + 1);
+  decimalNumbersGross.length === 3 ? numToArray.splice(theInd, 1) : "";
+  let thousandsGross = numToArray.join("");
+
+  return thousandsGross;
+}

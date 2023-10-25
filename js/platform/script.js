@@ -16,6 +16,7 @@ const activePositionQuantity = document.querySelector(".position-qty");
 const activePositionEntryPrice = document.querySelector(".position-price");
 const activePositionPnl = document.querySelector(".position-pnl");
 const tickPriceList = document.querySelectorAll(".tick-price");
+const totalCashValue = document.querySelector(".account_cash--vlue");
 
 // Generate p elements with numbers form 150 to 1
 function generatePriceLadder() {
@@ -34,6 +35,11 @@ let chartHeight = canvas.height;
 let chartWidth = canvas.width;
 let currentPrice = 50;
 let priceRange = 10;
+
+const accountBalance = 100000;
+let dailyProfitGross = 0;
+let dailyProfitNet = 0;
+let cleanTotalCash = 0;
 
 function createCandle() {
   const open = currentPrice;
