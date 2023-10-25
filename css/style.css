@@ -1,0 +1,89 @@
+* {
+    border: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;   /** 10/16 = 62.5% */
+}
+
+body{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header {
+    background-color: #000;
+}
+
+.header-content {
+    margin: 0 auto;
+    width: 80%;
+}
+/************  Navigation styles**********************/
+
+nav{
+    display: flex;
+    height: 8rem;
+    align-items: center;
+}
+.logo{
+    margin-right: auto;
+    padding: 10px 10px;
+}
+.nav-links{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_link{
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+}
+
+.nav_link:hover{
+    text-decoration: underline red 3px;
+}
+.nav-web_platform {
+    background-color: red;
+    padding: 10px;
+    letter-spacing: .2rem;
+    color: #000;
+}
+
+.nav-web_platform a {
+    color: #000;
+    text-decoration: none;
+}
+.nav-web_platform a:hover{
+    color: #fff;
+}
+
+/************  Logo styles **********************/
+.logo {
+    background: linear-gradient(to right, #CE4C0E 0%, #A4412F 0%, #970000 100%);
+    font-size: 20px;
+    color: #eee;
+    text-transform: uppercase;
+  }
+  .logo-first{
+    margin-right: -5px;
+  }
+  .logo-second {
+   font-weight: bolder;
+   font-size: 2.3rem;
+  }
+  
+  .open-positions-tab{
+    position: relative;
+  }
+ 
+  .account-tab,
+  .open-positions-tab{
+    padding: 1px 10px 1px 10px;
+  }
+  
