@@ -12,19 +12,19 @@ body{
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-header {
-    background-color: #000;
-}
 
-.header-content {
-    margin: 0 auto;
-    width: 80%;
-}
 /************  Navigation styles**********************/
 
-nav{
+.header-nav_content{
+    margin: 0 auto;
+    width: 80%;
     display: flex;
+}
+
+nav{
     height: 8rem;
+    background-color: #000;
+    display: flex;
     align-items: center;
 }
 .logo{
@@ -33,7 +33,7 @@ nav{
 }
 .nav-links{
     display: flex;
-    width: 50%;
+    width: 30%;
     justify-content: space-between;
     align-items: center;
 }
@@ -61,6 +61,7 @@ nav{
 }
 .nav-web_platform a:hover{
     color: #fff;
+    background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#ff4200;
 }
 
 /************  Logo styles **********************/
@@ -87,3 +88,93 @@ nav{
     padding: 1px 10px 1px 10px;
   }
   
+  .header-hero_content{
+    width: 80%;
+    min-height: 41rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-hero_text-box {
+    max-width: 42.5rem;
+    animation-name: displayHeroText;
+    animation-duration: 1s;
+  }
+
+.header-hero_wrapper{
+    align-self: center;
+}
+
+.header-hero_title{
+    font-size: 450%;
+    margin-bottom: 1rem;
+}
+.header-hero_text{
+    font-size: 1.8rem;
+    font-weight: 100;
+    
+}
+.hero-image{
+    width: 100%;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    
+  }
+
+.hero-btn {
+    display: inline-block;
+    border: 0;
+    width: 16rem;
+    height: 5rem;
+    color: #000;
+    text-decoration: none;
+    background: #ff4200;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.hero-btn:hover{
+    color: #fff;
+    background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#ff4200;
+}
+
+/************  Animations **********************/
+
+
+@keyframes moveInLeft {
+    0% {
+     opacity: 0;
+     transform: translateX(200px);
+    }
+
+    30%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes displayHeroText {
+    0% {
+     opacity: 0;
+     transform: translateX(-200px);
+    }
+    50%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
