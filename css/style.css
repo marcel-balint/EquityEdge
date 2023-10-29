@@ -15,6 +15,10 @@ body{
 
 /************  Navigation styles**********************/
 
+header {
+    margin-bottom: 4rem;
+}
+
 .header-nav_content{
     margin: 0 auto;
     width: 80%;
@@ -26,6 +30,12 @@ nav{
     background-color: #000;
     display: flex;
     align-items: center;
+}
+
+.fixed-nav {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
 .logo{
     margin-right: auto;
@@ -59,9 +69,9 @@ nav{
     color: #000;
     text-decoration: none;
 }
+
 .nav-web_platform a:hover{
     color: #fff;
-    background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#ff4200;
 }
 
 /************  Logo styles **********************/
@@ -124,7 +134,7 @@ nav{
 .hero-btn {
     display: inline-block;
     border: 0;
-    width: 16rem;
+    width: 16.1rem;
     height: 5rem;
     color: #000;
     text-decoration: none;
@@ -145,6 +155,60 @@ nav{
     background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#ff4200;
 }
 
+
+/************  Features Section styles**********/
+
+.features {
+    background-color: #eee;
+    padding: 15rem 5rem;
+}
+
+.features-content{
+    margin: auto;
+    width: 80%;
+}
+
+.features-content h2 {
+    text-align: center;
+    font-size: 350%;
+    letter-spacing: .1rem;
+}
+
+.features-content_container{
+    padding-top: 7rem;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.selling-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selling-card_image {
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 40px;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    box-shadow: -2px 4px 9px 3px rgba(0, 0, 0, 0.15);
+}
+.selling-card_image img{
+    height: 60px;
+}
+
+.selling-card_title{
+    font-size: 2.1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.selling-card_content p {
+    font-size: 1.6rem;
+    text-align: center;
+}
 /************  Animations **********************/
 
 
