@@ -26,7 +26,7 @@ header {
 }
 
 nav{
-    height: 8rem;
+    height: 9rem;
     background-color: #000;
     display: flex;
     align-items: center;
@@ -134,7 +134,7 @@ nav{
 .hero-btn {
     display: inline-block;
     border: 0;
-    width: 16.1rem;
+    width: 18.1rem;
     height: 5rem;
     color: #000;
     text-decoration: none;
@@ -176,17 +176,32 @@ nav{
 
 .features-content_container{
     padding-top: 7rem;
+    padding-bottom: 6rem;
 }
 
 .row{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.column {
+    width: 30%;
+    height: 250px;
 }
 .selling-card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
 }
+.selling-card_content {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
 .selling-card_image {
     border: 2px solid transparent;
     border-radius: 50%;
@@ -206,8 +221,15 @@ nav{
 }
 
 .selling-card_content p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: center;
+    letter-spacing: .1rem;
+}
+
+.action-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /************  Animations **********************/
 

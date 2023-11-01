@@ -1,7 +1,7 @@
 const featuresContent = document.querySelector(".row");
 const navigationBar = document.querySelector("nav");
 
-// Add sticky nav on scroll if features section is on window view
+// Add sticky nav on scroll if features section is in window view
 const obsCallback = function (entries) {
   const [entry] = entries;
   entry.isIntersecting
