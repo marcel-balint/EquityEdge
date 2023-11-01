@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40">
+	<defs>
+		<clipPath id="clip_0">
+			<rect x="-320" y="-855" width="1440" height="4355" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_0)">
+		<path fill="rgb(17,43,74)" stroke="none" transform="translate(16 12)" d="M1.94121 15.6461L1.94121 8.30445L0 8.30445L0 5.66101L1.94121 5.66101C1.94121 5.66101 1.94121 4.57779 1.94121 3.40328C1.94121 1.62911 3.0879 0 5.73005 0C6.79986 0 7.5911 0.102559 7.5911 0.102559L7.52862 2.57097C7.52862 2.57097 6.72184 2.56313 5.84145 2.56313C4.88861 2.56313 4.73598 3.00218 4.73598 3.73107C4.73598 4.3072 4.73598 2.50307 4.73598 5.66116L7.60436 5.66116L7.47955 8.30459L4.73598 8.30459L4.73598 15.6462L1.94121 15.6462L1.94121 15.6461Z"/>
+	</g>
+	<defs>
+		<clipPath id="clip_1">
+			<path d="M40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20Z" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_1)">
+		<path fill="none" stroke="rgb(17,43,74)" stroke-width="2" stroke-miterlimit="4" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z"/>
+	</g>
+
+</svg>
