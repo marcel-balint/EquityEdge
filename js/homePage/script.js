@@ -1,5 +1,9 @@
 const headerElement = document.querySelector(".header-hero_text-box");
 const navigationBar = document.querySelector("nav");
+const copyrightEl = document.querySelector(".current-year");
+
+const currentYear = new Date().getFullYear();
+copyrightEl.textContent = currentYear;
 
 // Add sticky nav on scroll if headerElement section is not in window view
 const obsCallback = function (entries) {

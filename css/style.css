@@ -362,8 +362,7 @@ footer{
 }
 
 .social-phone{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0rem;
 }
 
 .social-phone_title {
@@ -379,7 +378,18 @@ footer{
 .social-icons_title {
     font-size: 1.6rem;
 }
+.disclaimer-content {
+    width: 80%;
+    margin: auto;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
 
+.disclaimer-content p:not(:last-child) {
+    margin-bottom: 2rem;
+}
 /************  Animations **********************/
 
 
