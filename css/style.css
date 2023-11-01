@@ -30,12 +30,13 @@ nav{
     background-color: #000;
     display: flex;
     align-items: center;
+    transition: background-color .6s;
 }
 
 .fixed-nav {
     position: fixed;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .logo{
     margin-right: auto;
@@ -231,6 +232,82 @@ nav{
     flex-direction: column;
     align-items: center;
 }
+
+/************  Description Section styles**********/
+
+.description {
+    background-color: #eee;
+    padding-bottom: 5rem;
+}
+
+.description-content{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8.6rem;;
+}
+
+.description-content_text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.description-contnet_gif img{
+    width: 100%;
+    clip-path: polygon(100% 0,100% 90%,87% 100%,0 100%,0 0);
+}
+.description-contnet_gif {
+  position: relative;
+  z-index: 1;
+}
+.description-contnet_gif::before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 100%;
+    z-index: -1;
+    clip-path: polygon(100% 0,100% 88%,85% 100%,0 100%,0 0);
+    width: 100%;
+    background-color: rgb(0, 149, 179);
+}
+
+.description-content_title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 2.8rem;
+}
+
+.description-content_list {
+    margin-bottom: 1.5rem;
+}
+.description-content_list p {
+    font-size: 1.8rem;
+    margin: 0 0 1rem;
+}
+
+.description-content_list ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+
+.description-content_list ul li {
+    display: flex;
+    margin: 1rem 0;
+}
+.description-content_list ul li p {
+    font-size: 1.6rem;
+    margin-left: 2rem;
+}
+.description-content_list ul li img {
+    width: 20px;
+    height: 20px;
+}
+
 /************  Animations **********************/
 
 
