@@ -8,6 +8,11 @@ html{
     font-size: 62.5%;   /** 10/16 = 62.5% */
 }
 
+::selection {
+    background-color: #000;
+    color: #fff;
+  }
+
 body{
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -57,7 +62,8 @@ nav{
     color: #fff;
 }
 
-.nav_link:hover{
+.about-link:hover,
+.insights-link:hover{
     text-decoration: underline red 3px;
 }
 .nav-web_platform {
@@ -76,6 +82,64 @@ nav{
     color: #fff;
 }
 
+
+.dropdown {
+    position: relative;;
+}
+.data-expander{
+    z-index: -1;
+    position: absolute;
+    top: 5.449rem;
+    background-color: #181717;
+    padding: 1rem;
+}
+
+.data-expander ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+.data-expander ul li {
+    margin-top: 2rem;
+}
+
+.data-expander ul li:last-child{
+    margin-bottom: 2rem;
+}
+
+.data-expander ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 100;
+    transition: color .3s;
+}
+.data-expander ul li a:hover{
+    color: #ff4200;
+    text-decoration: underline;
+}
+
+.data-expander_about {
+    width: 20rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.data-expander_insights {
+    width: 15rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all .3s;
+}
+
+.active-dropdown{
+    transform: translateY(0px);
+    opacity: 1;
+    z-index: 1;
+}
+.active-link {
+    color: #ccc
+}
 /************  Logo styles **********************/
 .logo {
     background: linear-gradient(to right, #CE4C0E 0%, #A4412F 0%, #970000 100%);
