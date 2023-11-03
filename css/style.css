@@ -71,6 +71,30 @@ nav{
     padding: 10px;
     letter-spacing: .2rem;
     color: #000;
+    transition: all .3s;
+}
+
+.nav-web_platform:hover{
+    padding-right: 2rem;
+    margin-left: -1rem;
+}
+
+.nav-web_platform:hover .arrow-left{
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+.nav-link p a {
+    position: relative;
+}
+.arrow-left {
+    position: absolute;
+    width: 1.6rem;
+    background-color: #000;
+    opacity: 0;
+    transform: translateX(10px);
+    clip-path: polygon(17% 21%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 19% 80%);
+
 }
 
 .nav-web_platform a {
@@ -400,6 +424,10 @@ footer{
 
 .footer-content ul li {
     margin-top: 1.5rem;
+}
+
+.footer-content ul li:hover {
+    text-decoration: underline;
 }
 
 .footer-content ul li a {

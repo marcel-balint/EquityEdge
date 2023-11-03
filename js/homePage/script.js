@@ -7,6 +7,7 @@ const dropdownInsightsExpander = document.querySelector(
   ".data-expander_insights"
 );
 const dropdownAboutExpander = document.querySelector(".data-expander_about");
+const dropdownLinks = document.querySelectorAll(".data-expander ul li");
 
 // Navigation dropdown links toggle
 dropdownAbout.addEventListener("click", () => {
@@ -21,6 +22,26 @@ dropdownInsights.addEventListener("click", () => {
   dropdownAboutExpander.classList.remove("active-dropdown");
   dropdownAbout.classList.remove("active-link");
   dropdownInsights.classList.toggle("active-link");
+});
+
+// Set dropdown menu to initial state when click on a dropdown link
+dropdownLinks.forEach((el) => {
+  el.addEventListener("click", () => {
+    el.parentElement.parentElement.classList.remove("active-dropdown");
+    el.parentElement.parentElement.previousElementSibling.classList.remove(
+      "active-link"
+    );
+  });
+});
+
+// Set dropdown menu to initial state when click ouside of the dropdown menu
+document.addEventListener("click", (e) => {
+  if (e.target !== dropdownAbout && e.target !== dropdownInsights) {
+    dropdownInsights.classList.remove("active-link");
+    dropdownAbout.classList.remove("active-link");
+    dropdownAboutExpander.classList.remove("active-dropdown");
+    dropdownInsightsExpander.classList.remove("active-dropdown");
+  }
 });
 
 const currentYear = new Date().getFullYear();
