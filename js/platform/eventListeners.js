@@ -5,6 +5,7 @@ const positionRows = document.querySelector(".position-info__rows");
 const buyButton = document.querySelector(".buy-btn");
 const sellButton = document.querySelector(".sell-btn");
 const closePositionBtn = document.querySelector(".close-position__btn");
+const alertContractsNum = document.querySelector(".alert");
 
 let activeOrder = null;
 let entryPriceLevel = "";
@@ -24,6 +25,25 @@ positionTab.addEventListener("click", () => {
   accountTab.style.backgroundColor = "";
   positionRows.style.display = "flex";
   positionTab.style.backgroundColor = "#42494f";
+});
+
+orderQtyValue.addEventListener("change", (e) => {
+  let inputNumber = parseInt(e.target.value);
+  if (inputNumber < 0) {
+    e.target.value = 1;
+    alertContractsNum.textContent = "At least 1 contract needed";
+    setTimeout(() => {
+      alertContractsNum.textContent = "";
+    }, 3000);
+  }
+  if (inputNumber > 50) {
+    e.target.value = 50;
+    alertContractsNum.textContent = "Maximum contracts is 50";
+    setTimeout(() => {
+      alertContractsNum.textContent = "";
+    }, 3000);
+  }
+  return inputNumber;
 });
 
 // BUY Order
