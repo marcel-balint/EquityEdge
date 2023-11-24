@@ -4,6 +4,10 @@ body{
     box-sizing: border-box;
 }
 
+.desktop-msg {
+  display: none;
+}
+
 .main-container{
   background-color: #434d56;
   height: 100vh;

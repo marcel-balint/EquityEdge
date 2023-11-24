@@ -627,7 +627,7 @@ footer{
         left: 0;
         padding-left: 3.5rem;
         padding-right: 3rem;
-        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.5);
         border-top: 1px solid #000;
     }
 
