@@ -52,12 +52,12 @@ copyrightEl.textContent = currentYear;
 // Add sticky nav on scroll if headerElement section is not in window view
 const obsCallback = function (entries) {
   const [entry] = entries;
-  console.log(entry);
-
   if (!entry.isIntersecting) {
     navigationBar.classList.add("fixed-nav");
+    navigationLinksMobile.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
   } else {
     navigationBar.classList.remove("fixed-nav");
+    navigationLinksMobile.style.backgroundColor = "rgba(0, 0, 0)";
   }
 };
 
