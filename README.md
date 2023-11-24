@@ -46,3 +46,19 @@ Check out the live demo [here](https://marcel-balint.github.io/EquityEdge/).
   - Visual indicators for active orders.
   - Entry price, PnL, and Order Qty input field.
   - Warning for entering more than 50 contracts.
+
+## Technologies used:
+
+- HTML
+- CSS
+- JavaScript
+
+## Installing the project locally:
+
+1 Clone this repo:
+
+`git clone https://github.com/marcel-balint/EquityEdge.git`
+
+2 To cut ties with this GitHub repository, type in terminal:
+
+`git remote rm origin`
