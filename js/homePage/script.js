@@ -8,6 +8,8 @@ const dropdownInsightsExpander = document.querySelector(
 );
 const dropdownAboutExpander = document.querySelector(".data-expander_about");
 const dropdownLinks = document.querySelectorAll(".data-expander ul li");
+const mobileMenu = document.querySelector(".mobile-icon");
+const navigationLinksMobile = document.querySelector(".nav-links");
 
 // Navigation dropdown links toggle
 dropdownAbout.addEventListener("click", () => {
@@ -65,3 +67,9 @@ const obsOptions = {
 };
 const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(headerElement); // Observe if 'headerElement' is in the viewport
+
+// Mobile menu functionality
+mobileMenu.addEventListener("click", () => {
+  navigationLinksMobile.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+});
