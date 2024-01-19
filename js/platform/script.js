@@ -56,11 +56,15 @@ function createCandle() {
   const high = open + Math.max(priceChange, 0);
   const low = open + Math.min(priceChange, 0);
   const close = open + priceChange;
-
   // Remove the last candle (chart will have an auto scroll effect and follow to price)
-  candles = candles.slice(1);
+  let theMarketData = localStorage.getItem("market_data"); // Access local storage data
+  let parsedData = JSON.parse(theMarketData);
+  let slicedData = parsedData.slice(1);
+
   // Add new candle
-  candles.push({ open, high, low, close });
+  slicedData.push({ open, high, low, close });
+  localStorage.setItem("market_data", JSON.stringify(slicedData));
+
   currentPrice = close;
   priceNow.textContent = Math.floor(currentPrice);
   // Calculate the highest x-coordinate in the chart to determine if the chart needs resizing.
@@ -73,11 +77,15 @@ function createCandle() {
 }
 
 function updateChart() {
+  // Access data for local storage
+  let dataFlow = localStorage.getItem("market_data");
+  let dataFlowParsed = JSON.parse(dataFlow);
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < candles.length; i++) {
+  for (let i = 0; i < dataFlowParsed.length; i++) {
     // Calculate the x-coordinate (xAxis) for the center of the candlestick.
     const xAxis = (i + 0.5) * candleWidth + candleWidth / 2;
-    const { open, high, low, close } = candles[i];
+    const { open, high, low, close } = dataFlowParsed[i];
     // Draw the candlestick at the specified coordinates.
     drawCandle(xAxis, open, high, low, close);
   }

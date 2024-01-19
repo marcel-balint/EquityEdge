@@ -523,3 +523,8 @@ let candles = [
     close: 15.248646067483302,
   },
 ];
+if (!localStorage.getItem("started")) {
+  localStorage.setItem("market_data", JSON.stringify(candles));
+  localStorage.setItem("started", true);
+}
+   
